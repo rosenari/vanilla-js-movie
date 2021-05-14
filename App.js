@@ -1,4 +1,5 @@
 import "./App.css";
+import Popup from "./components/Popup";
 import SearchInput from "./components/SearchInput";
 import SearchResult from "./components/SearchResult";
 
@@ -10,6 +11,7 @@ class App {
             this._component = {};
             this._component._searchInput = null;
             this._component._searchResult = null;
+            this._component._popup = null;
 
             instance = this;
         }
@@ -46,10 +48,10 @@ class App {
 class AppBuilder {
     constructor($target) {
         this._app = new App($target);
+        this._app._component._popup = new Popup($target);
     }
 
     setSearchInput($target) {
-        console.log(this._app)
         this._app._component._searchInput = new SearchInput($target);
         return this;
     }
